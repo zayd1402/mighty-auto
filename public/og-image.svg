@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A2332;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0D1520;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#E8621A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C4520F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)" />
+
+  <!-- Decorative circles -->
+  <circle cx="1050" cy="100" r="300" fill="#E8621A" opacity="0.05" />
+  <circle cx="150" cy="530" r="200" fill="#E8621A" opacity="0.05" />
+
+  <!-- Accent bar top -->
+  <rect x="0" y="0" width="1200" height="8" fill="url(#accentGrad)" />
+
+  <!-- Logo area -->
+  <rect x="540" y="120" width="120" height="120" rx="16" fill="#E8621A" />
+  <text x="600" y="185" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">MA</text>
+
+  <!-- Business Name -->
+  <text x="600" y="300" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="white" text-anchor="middle">Mighty Auto's &amp; Tyre</text>
+
+  <!-- Tagline -->
+  <text x="600" y="350" font-family="Arial, sans-serif" font-size="24" fill="#9AA3B2" text-anchor="middle">Merrylands' Most Trusted Mechanic</text>
+
+  <!-- Divider -->
+  <line x1="400" y1="400" x2="800" y2="400" stroke="#E8621A" stroke-width="3" />
+
+  <!-- Phone -->
+  <text x="600" y="470" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#E8621A" text-anchor="middle">02 9897 7442</text>
+
+  <!-- Address -->
+  <text x="600" y="520" font-family="Arial, sans-serif" font-size="20" fill="#9AA3B2" text-anchor="middle">506 Merrylands Rd, Merrylands West NSW 2160</text>
+
+  <!-- Website -->
+  <text x="600" y="570" font-family="Arial, sans-serif" font-size="18" fill="#5A6478" text-anchor="middle">www.mightyautorepairs.com.au</text>
+</svg>
