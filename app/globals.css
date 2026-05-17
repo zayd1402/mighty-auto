@@ -100,43 +100,181 @@ body {
   border-radius: var(--radius-xs);
 }
 
-/* ─── Animations ─── */
-@keyframes scroll-line {
-  0%   { transform: translateY(-100%); }
-  100% { transform: translateY(300%); }
-}
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(22px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-@keyframes slide-right {
-  from { opacity: 0; transform: translateX(-12px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes slide-up {
-  from { opacity: 0; transform: translateY(40px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes scale-in {
-  from { opacity: 0; transform: scale(0.95); }
-  to   { opacity: 1; transform: scale(1); }
+/* ═══════════════════════════════════════════════
+   KOWALSKI MOTION SYSTEM
+   Physics-first, orchestrated, impeccable
+   ═══════════════════════════════════════════════ */
+
+/* ─── Spring Easing — the signature of premium motion ─── */
+:root {
+  /* Spring curves — physics-based, not mathematical */
+  --ease-spring-out:    cubic-bezier(0.16, 1, 0.3, 1);   /* Primary: fast start, gentle land */
+  --ease-spring-in:     cubic-bezier(0.7, 0, 0.84, 0);  /* Reverse spring */
+  --ease-spring:       cubic-bezier(0.34, 1.56, 0.64, 1); /* Gentle overshoot */
+
+  /* Orchestrated delays — stagger rhythm */
+  --delay-1:  60ms;
+  --delay-2:  120ms;
+  --delay-3:  180ms;
+  --delay-4:  240ms;
+  --delay-5:  300ms;
+  --delay-6:  360ms;
+  --delay-7:  420ms;
+  --delay-8:  480ms;
+
+  /* Motion durations — fast = premium, slow = lazy */
+  --duration-instant: 100ms;
+  --duration-fast:    200ms;
+  --duration-normal:  350ms;
+  --duration-slow:    500ms;
+  --duration-dramatic: 700ms;
 }
 
-.animate-fade-up   { animation: fade-up   0.45s ease-out both; }
-.animate-fade-in   { animation: fade-in   0.3s  ease-out both; }
-.animate-slide-right { animation: slide-right 0.4s ease-out both; }
-.animate-slide-up  { animation: slide-up  0.5s  ease-out both; }
-.animate-scale-in  { animation: scale-in  0.4s  ease-out both; }
+/* ─── Scroll-Reveal System ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity var(--duration-slow) var(--ease-spring-out),
+    transform var(--duration-slow) var(--ease-spring-out);
+}
 
-.animate-delay-1 { animation-delay: 80ms; }
-.animate-delay-2 { animation-delay: 160ms; }
-.animate-delay-3 { animation-delay: 240ms; }
-.animate-delay-4 { animation-delay: 320ms; }
-.animate-delay-5 { animation-delay: 400ms; }
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.94);
+  transition:
+    opacity var(--duration-slow) var(--ease-spring-out),
+    transform var(--duration-slow) var(--ease-spring-out);
+}
+
+.reveal-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition:
+    opacity var(--duration-slow) var(--ease-spring-out),
+    transform var(--duration-slow) var(--ease-spring-out);
+}
+
+.reveal-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(24px);
+  transition:
+    opacity var(--duration-slow) var(--ease-spring-out),
+    transform var(--duration-slow) var(--ease-spring-out);
+}
+
+.reveal-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger children — every child delays 80ms more */
+.stagger-children > *:nth-child(1)  { transition-delay: 0ms; }
+.stagger-children > *:nth-child(2)  { transition-delay: 80ms; }
+.stagger-children > *:nth-child(3)  { transition-delay: 160ms; }
+.stagger-children > *:nth-child(4)  { transition-delay: 240ms; }
+.stagger-children > *:nth-child(5)  { transition-delay: 320ms; }
+.stagger-children > *:nth-child(6)  { transition-delay: 400ms; }
+.stagger-children > *:nth-child(7)  { transition-delay: 480ms; }
+.stagger-children > *:nth-child(8)  { transition-delay: 560ms; }
+
+/* ─── Micro-interactions: Hover ─── */
+.hover-lift {
+  transition: transform var(--duration-normal) var(--ease-spring-out),
+              box-shadow var(--duration-normal) var(--ease-spring-out);
+}
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0,20,40,0.14), 0 2px 6px rgba(0,20,40,0.08);
+}
+
+.hover-scale {
+  transition: transform var(--duration-fast) var(--ease-spring);
+}
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+.hover-glow {
+  transition: box-shadow var(--duration-normal) var(--ease-spring-out);
+}
+.hover-glow:hover {
+  box-shadow: 0 0 0 3px rgba(232,168,56,0.2), 0 4px 20px rgba(232,168,56,0.15);
+}
+
+/* ─── Magnetic hover — subtle pull toward cursor ─── */
+.hover-magnetic {
+  transition: transform var(--duration-fast) var(--ease-spring-out);
+}
+
+/* ─── Button press feedback ─── */
+.btn-press:active {
+  transform: scale(0.97);
+  transition-duration: 80ms;
+}
+
+/* ─── Text reveal — clip-path wipe ─── */
+.text-reveal {
+  overflow: hidden;
+}
+.text-reveal span {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform var(--duration-slow) var(--ease-spring-out);
+}
+.text-reveal.is-visible span {
+  transform: translateY(0);
+}
+
+/* ─── Parallax wrapper ─── */
+.parallax-container {
+  overflow: hidden;
+  position: relative;
+}
+.parallax-bg {
+  will-change: transform;
+  transition: transform 0ms linear; /* driven by JS, not CSS transition */
+}
+
+/* ─── Loading state — subtle pulse ─── */
+@keyframes subtle-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+.animate-pulse-subtle {
+  animation: subtle-pulse 1.8s ease-in-out infinite;
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-scale,
+  .reveal-left,
+  .reveal-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .text-reveal span {
+    transform: none;
+    transition: none;
+  }
+}
 
 /* ─── Noise texture overlay ─── */
 /* Subtle grain for depth — applied via ::after on specific sections */
