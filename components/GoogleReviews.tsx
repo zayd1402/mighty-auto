@@ -5,7 +5,12 @@ import { Star, MapPin, Quote } from "lucide-react";
 
 export function GoogleReviews() {
   return (
-    <section className="bg-[--color-surface-2]">
+    <section className="bg-[--color-surface-2] overflow-hidden">
+
+      {/* Section divider — amber gradient */}
+      <div className="h-px w-full" style={{
+        background: "linear-gradient(to right, transparent, var(--color-accent), transparent)"
+      }} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header — left-aligned */}
         <div className="pt-[var(--space-section-lg)] pb-[var(--space-section-md)]">

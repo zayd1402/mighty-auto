@@ -108,15 +108,15 @@ export function Hero() {
               </span>
             </div>
 
-            {/* Display headline */}
+            {/* Display headline — premium 7rem display */}
             <h1
               className="opacity-0"
               style={{
-                fontSize: "clamp(3rem, 6vw + 1rem, 5.5rem)",
-                fontWeight: 800,
-                lineHeight: 1.0,
-                letterSpacing: "-0.03em",
-                animation: "fade-up 0.6s ease-out 0.2s forwards",
+                fontSize: "clamp(3.5rem, 7vw + 1rem, 7rem)",
+                fontWeight: 900,
+                lineHeight: 0.95,
+                letterSpacing: "-0.035em",
+                animation: "fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards",
               }}
             >
               Expert Car Care,{" "}
@@ -230,7 +230,7 @@ export function Hero() {
           100% { transform: translateY(300%); }
         }
         @keyframes fade-up {
-          from { opacity: 0; transform: translateY(22px); }
+          from { opacity: 0; transform: translateY(28px); }
           to   { opacity: 1; transform: translateY(0); }
         }
         @keyframes fade-in {
