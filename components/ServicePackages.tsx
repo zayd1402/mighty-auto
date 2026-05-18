@@ -109,6 +109,12 @@ export function ServicePackages() {
       className="relative overflow-hidden"
       style={{ background: "var(--color-surface)" }}
     >
+
+      {/* Section divider — amber gradient */}
+      <div className="h-px w-full" style={{
+        background: "linear-gradient(to right, transparent, var(--color-accent), transparent)"
+      }} />
+
       {/* Workshop background — full bleed, dark overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
